@@ -9,7 +9,7 @@ const Counter = () => {
 
     return (
         <div className="mt-5">
-            <h3>Couter: useState</h3>
+            <h4>Couter</h4>
             <span>Value: {counter}</span>
             <br />
             <button
