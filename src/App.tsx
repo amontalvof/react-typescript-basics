@@ -1,15 +1,17 @@
-import Counter from './components/Counter';
-import User from './components/User';
-import TimerParent from './components/TimerParent';
-import CounterReducer from './components/CounterReducer';
-import Form from './components/Form';
+// import Counter from './components/Counter';
+// import User from './components/User';
+// import TimerParent from './components/TimerParent';
+// import CounterReducer from './components/CounterReducer';
+// import Form from './components/Form';
+import Todo from './todo';
 
 function App() {
     return (
         <>
             <h1>React + TypeScript</h1>
             <hr />
-            <h2>useState</h2>
+            <Todo />
+            {/* <h2>useState</h2>
             <Counter />
             <User />
             <hr />
@@ -23,7 +25,7 @@ function App() {
             <Form />
             <br />
             <br />
-            <br />
+            <br /> */}
         </>
     );
 }
