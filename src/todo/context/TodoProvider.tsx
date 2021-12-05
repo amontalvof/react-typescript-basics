@@ -1,9 +1,22 @@
-import React from 'react';
+import { useReducer } from 'react';
 import { TodoContext } from './TodoContext';
+import { TodoState } from '../interfaces';
+import todoReducer from './todoReducer';
 
-const INITIAL_STATE = {
+const INITIAL_STATE: TodoState = {
     todoCount: 2,
-    todos: [],
+    todos: [
+        {
+            id: '1',
+            desc: 'Collect the infinity stones',
+            completed: false,
+        },
+        {
+            id: '2',
+            desc: 'Soul stone',
+            completed: false,
+        },
+    ],
     completed: 0,
     pending: 2,
 };
@@ -13,7 +26,17 @@ interface props {
 }
 
 const TodoProvider = ({ children }: props) => {
-    return <TodoContext.Provider value={{}}>{children}</TodoContext.Provider>;
+    const [todoState, dispatch] = useReducer(todoReducer, INITIAL_STATE);
+
+    const toggleTodo = (id: string) => {
+        dispatch({ type: 'toggleTodo', payload: { id } });
+    };
+
+    return (
+        <TodoContext.Provider value={{ todoState, toggleTodo: toggleTodo }}>
+            {children}
+        </TodoContext.Provider>
+    );
 };
 
 export default TodoProvider;
